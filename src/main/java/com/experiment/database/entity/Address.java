@@ -16,14 +16,9 @@ public class Address {
     private  String detail;
     @ManyToOne
     private User user;
-    @Column(columnDefinition = "DATETIME NOT NULL" +
-            "DEFAULT CURRENT_TIMESTAMP ON UPDATE" +
-            "CURRENT_TIMESTAMP")
-    private LocalDateTime updateTime;
-    @Column(columnDefinition = "TIMESTAMP NOT NULL"  +
-            "CURRENT_TIMESTAMP",
-            updatable = false,
-            insertable = false)
+    @Column(columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",
+            insertable = false
+            , updatable = false)
     private LocalDateTime insertTime;
     public Address(String detail) {
         this.detail = detail;
